@@ -64,8 +64,8 @@ class LinearRegression(object):
         self.x = np.hstack(([[1]] * self.sample_size, self.x))
         count = 0
         while count <= self.maxstep:
-            derive = np.dot((np.dot(self.x, self.theta)-self.z).T, self.x)
-            self.theta = self.theta-self.alpha/self.sample_size*derive.T
+            derive = np.dot(self.x.T, (np.dot(self.x, self.theta)-self.z))
+            self.theta = self.theta-self.alpha/self.sample_size*derive
             error_init = self.J_theta()
             count += 1
             self.iter_record.append(count)
@@ -104,7 +104,7 @@ z = dataframe[columns]
 if __name__ == '__main__':
     alpha = 0.01
     maxstep = 400
-    method = 0
+    method = 1
     linear = LinearRegression(x, z, alpha, maxstep, method)
     result = linear.Predict(np.array([[1650, 3]]))
     print(result)
