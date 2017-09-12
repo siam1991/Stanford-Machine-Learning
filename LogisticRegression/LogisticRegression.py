@@ -15,7 +15,8 @@ def MapFeature(x1, x2):
 
 
 class LogisticRegression(object):
-    def __init__(self, x, z, alpha, maxstep,lam=10):
+    # 初始化正则化系数，一般取0.01, 0.1, 1.....
+    def __init__(self, x, z, alpha, maxstep,lam=0.1):
         self.x1 = np.array(x[0])
         self.x2 = np.array(x[1])
         self.x = x
@@ -123,8 +124,8 @@ if __name__ == '__main__':
     # result = logistic.Predict(np.array([[45, 85]]))
     # print('预测结果：', result)
     # ex2
-    alpha = 0.8
-    maxstep = 200
+    alpha = 0.6
+    maxstep = 1000
     x = MapFeature(x1, x2)
     logistic = LogisticRegression(x, z, alpha, maxstep)
     predict = MapFeature(np.array([0.13191]), np.array([-0.51389]))
