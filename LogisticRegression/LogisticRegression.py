@@ -98,6 +98,7 @@ class LogisticRegression(object):
         print("Train Accuracy:", correct_percent)
         return result
 
+
     def ScaleFeature(self):
         if self.feature_size >= 2:
             self.mu = np.array(np.mean(self.x, axis=0))
