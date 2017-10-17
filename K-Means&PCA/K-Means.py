@@ -3,7 +3,6 @@ import scipy.io
 import matplotlib.pyplot as plt
 
 
-
 def FindClosestCentroids(X, initial_centroids):
     # 聚类个数
     K = initial_centroids.shape[0]
@@ -82,6 +81,7 @@ if __name__ == '__main__':
     plt.subplot(122)
     plt.imshow(X_trans)
     plt.show()
+
 
 
 
