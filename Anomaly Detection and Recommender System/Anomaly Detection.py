@@ -72,3 +72,14 @@ if __name__ == '__main__':
     print(anomaly_index)
     plt.scatter(X[anomaly_index,0],X[anomaly_index,1],edgecolors='red')
     plt.show()
+
+    matrix_2 = scipy.io.loadmat("ex8data2.mat")
+    X = matrix_2["X"]
+    Xval = matrix_2["Xval"]
+    yval = matrix_2["yval"]
+    mu,sigma = EstimateGaussian(X)
+    p = MultivariateGaussian(X, mu, sigma)
+    pval = MultivariateGaussian(Xval, mu, sigma)
+    F1, epsilon = SelectThreshold(yval, pval)
+    print(F1)
+    print(epsilon)
